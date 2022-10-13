@@ -62,4 +62,23 @@ ggplot()+geom_point(data = dat, aes(x= res, y = pred))
 #normality of residuals
 shapiro.test(res)
 
+#section 4
 
+#cronbach's alpha
+brd<- read.csv('csv-data-frames/brand.csv')
+
+install.packages('psy')
+require(psy)
+cronbach(brd)
+
+#cohen's kappa 
+tch<- read.csv('csv-data-frames/teachers.csv')
+install.packages("fmsb")
+library(fmsb)
+Kappa.test(tch$teacher1,tch$teacher2)
+
+#kendall's w 
+gym<- read.csv('csv-data-frames/gym.csv')
+install.packages('irr')
+require(irr)
+kendall(gym)
